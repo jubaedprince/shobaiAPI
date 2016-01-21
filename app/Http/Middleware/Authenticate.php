@@ -21,7 +21,10 @@ class Authenticate
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {
-                return redirect()->guest('login');
+                return response()->json([
+                    'success'=>false,
+                    'message'=>"Please login to view this route"
+                ]);
             }
         }
 
